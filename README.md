@@ -1,4 +1,4 @@
 JSCommander
 ===========
 
-A JavaScript Lib
+A simple JavaScript Lib for declarative programming

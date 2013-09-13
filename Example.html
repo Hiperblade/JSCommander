@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Command Example</title>
+        <style type="text/css">
+        	.command {}
+        	
+			.page {
+				display: none;
+			}
+			
+			.visible {
+				display: block;
+			}
+		</style>
+		<script type="text/javascript" src="Commander.js"></script>
+        <script type="text/javascript">
+        	Commander.gotoPage = function(sender)
+			{
+				var pageId = sender.getAttribute("data-pageId");
+				var parent = sender.parentNode;
+				while(!Commander.hasClass(parent, "page"))
+				{
+					parent = parent.parentNode;
+				}
+				parent.setAttribute('style', 'display:none;');
+				
+				document.getElementById(pageId).setAttribute('style', 'display:block;');
+			}
+			
+			Commander.showPopup = function(sender)
+			{
+				var popupText = sender.getAttribute("data-popupText");
+				alert(popupText);
+			}
+        </script>
+    </head>
+    <body onload='Commander.initialize(document);'>
+        <div>
+			<div id="page_1" class="page visible">
+    	        <div class="command" data-command="gotoPage" data-pageId="page_2"><h1>First page</h1></div>
+			</div>
+			<div id="page_2" class="page">
+				<div>
+					<div>
+						<div class="command" data-command="gotoPage" data-pageId="page_3"><h1 style="color:#80BFFF">This is the second page</h1></div>
+					</div>
+				</div>
+			</div>
+			<div id="page_3" class="page">
+				<div>
+					<div class="command" data-command="showPopup" data-popupText="Click lower!"><h1>Go</h1></div>
+					<div class="command" data-command="gotoPage" data-pageId="page_1"><h1 style="color:#BF80FF">back!</h1></div>
+				</div>
+			</div>
+        </div>
+    </body>
+</html>
