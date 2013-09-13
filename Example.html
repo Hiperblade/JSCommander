@@ -37,22 +37,22 @@
     </head>
     <body onload='Commander.initialize(document);'>
         <div>
-			<div id="page_1" class="page visible">
-    	        <div class="command" data-command="gotoPage" data-pageId="page_2"><h1>First page</h1></div>
-			</div>
-			<div id="page_2" class="page">
+		<div id="page_1" class="page visible">
+    	        	<div class="command" data-command="gotoPage" data-pageId="page_2"><h1>First page</h1></div>
+		</div>
+		<div id="page_2" class="page">
+			<div>
 				<div>
-					<div>
-						<div class="command" data-command="gotoPage" data-pageId="page_3"><h1 style="color:#80BFFF">This is the second page</h1></div>
-					</div>
+					<div class="command" data-command="gotoPage" data-pageId="page_3"><h1 style="color:#80BFFF">This is the second page</h1></div>
 				</div>
 			</div>
-			<div id="page_3" class="page">
-				<div>
-					<div class="command" data-command="showPopup" data-popupText="Click lower!"><h1>Go</h1></div>
-					<div class="command" data-command="gotoPage" data-pageId="page_1"><h1 style="color:#BF80FF">back!</h1></div>
-				</div>
+		</div>
+		<div id="page_3" class="page">
+			<div>
+				<div class="command" data-command="showPopup" data-popupText="Click lower!"><h1>Go</h1></div>
+				<div class="command" data-command="gotoPage" data-pageId="page_1"><h1 style="color:#BF80FF">back!</h1></div>
 			</div>
+		</div>
         </div>
     </body>
 </html>
