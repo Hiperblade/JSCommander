@@ -5,34 +5,34 @@
         <style type="text/css">
         	.command {}
         	
-			.page {
-				display: none;
-			}
-			
-			.visible {
-				display: block;
-			}
-		</style>
-		<script type="text/javascript" src="Commander.js"></script>
+		.page {
+			display: none;
+		}
+		
+		.visible {
+			display: block;
+		}
+	</style>
+	<script type="text/javascript" src="Commander.js"></script>
         <script type="text/javascript">
         	Commander.gotoPage = function(sender)
+		{
+			var pageId = sender.getAttribute("data-pageId");
+			var parent = sender.parentNode;
+			while(!Commander.hasClass(parent, "page"))
 			{
-				var pageId = sender.getAttribute("data-pageId");
-				var parent = sender.parentNode;
-				while(!Commander.hasClass(parent, "page"))
-				{
-					parent = parent.parentNode;
-				}
-				parent.setAttribute('style', 'display:none;');
-				
-				document.getElementById(pageId).setAttribute('style', 'display:block;');
+				parent = parent.parentNode;
 			}
+			parent.setAttribute('style', 'display:none;');
 			
-			Commander.showPopup = function(sender)
-			{
-				var popupText = sender.getAttribute("data-popupText");
-				alert(popupText);
-			}
+			document.getElementById(pageId).setAttribute('style', 'display:block;');
+		}
+		
+		Commander.showPopup = function(sender)
+		{
+			var popupText = sender.getAttribute("data-popupText");
+			alert(popupText);
+		}
         </script>
     </head>
     <body onload='Commander.initialize(document);'>
